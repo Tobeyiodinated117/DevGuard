@@ -6,7 +6,7 @@
 
 **Pre-push security scanner for AI-era developers**
 
-Catch supply chain vulnerabilities, exposed secrets, malicious packages, and AI toolchain threats — before you `git push`.
+Catch supply chain vulnerabilities, exposed secrets, malicious packages, and AI toolchain threats - before you `git push`.
 
 [![CLI version](https://img.shields.io/badge/CLI-v1.3.17-blue)](https://www.pentesterra.com/devguard.tar.gz)
 [![Extension version](https://img.shields.io/badge/Extension-v1.3.17-007ACC?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
@@ -40,7 +40,7 @@ Catch supply chain vulnerabilities, exposed secrets, malicious packages, and AI 
 
 ## What is DevGuard?
 
-DevGuard is a **thin local agent** that scans your project before every push and sends metadata — never your source code — to the Pentesterra cloud for analysis.
+DevGuard is a **thin local agent** that scans your project before every push and sends metadata - never your source code - to the Pentesterra cloud for analysis.
 
 ```
 Your Machine                    Pentesterra Cloud
@@ -91,7 +91,7 @@ Results appear in the [Pentesterra Dashboard](https://app.pentesterra.com) and a
 
 ## IDE Extension
 
-Install the VS Code extension for automatic scan-on-push, inline risk badges, and a full results panel — without leaving your editor.
+Install the VS Code extension for automatic scan-on-push, inline risk badges, and a full results panel - without leaving your editor.
 
 **Works with:** VS Code · Cursor · Windsurf
 
@@ -122,27 +122,27 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 <div align="center">
 
 <img src="docs/images/devguard-ide-setup.png" alt="DevGuard IDE API key setup" width="700" />
-<br/><em>Step 1 — Enter your API key directly in the IDE sidebar</em>
+<br/><em>Step 1 - Enter your API key directly in the IDE sidebar</em>
 
 <br/><br/>
 
 <img src="docs/images/devguard-scan.png" alt="DevGuard scan running" width="700" />
-<br/><em>Step 2 — Run a scan from the IDE or terminal</em>
+<br/><em>Step 2 - Run a scan from the IDE or terminal</em>
 
 <br/><br/>
 
 <img src="docs/images/ide-results.png" alt="DevGuard IDE results panel" width="700" />
-<br/><em>Step 3 — See findings in the IDE: Supply Chain, Secrets, AI Toolchain, SAST</em>
+<br/><em>Step 3 - See findings in the IDE: Supply Chain, Secrets, AI Toolchain, SAST</em>
 
 <br/><br/>
 
 <img src="docs/images/devguard-dashboard.png" alt="DevGuard web dashboard" width="700" />
-<br/><em>Full results in the Pentesterra Dashboard — risk score, severity breakdown, remediation</em>
+<br/><em>Full results in the Pentesterra Dashboard - risk score, severity breakdown, remediation</em>
 
 <br/><br/>
 
 <img src="docs/images/devguard-detailed.png" alt="DevGuard detailed scan results" width="700" />
-<br/><em>Detailed scan view — dependency chains, CVE descriptions, fix guidance</em>
+<br/><em>Detailed scan view - dependency chains, CVE descriptions, fix guidance</em>
 
 </div>
 
@@ -170,13 +170,13 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 
 ## Key Differentiators
 
-**Privacy-First** — No source code upload. Only metadata and redacted findings leave the developer machine. Use `--dry-run` to inspect the payload before submitting.
+**Privacy-First** - No source code upload. Only metadata and redacted findings leave the developer machine. Use `--dry-run` to inspect the payload before submitting.
 
-**IDE-Native** — VS Code, Cursor, and Windsurf extensions. Auto-installs CLI on first use, auto-updates, sidebar integration, scan-on-push hooks, and inline results.
+**IDE-Native** - VS Code, Cursor, and Windsurf extensions. Auto-installs CLI on first use, auto-updates, sidebar integration, scan-on-push hooks, and inline results.
 
-**Re-Analysis** — When new CVEs are published, previously scanned projects are automatically re-evaluated — no rescan needed.
+**Re-Analysis** - When new CVEs are published, previously scanned projects are automatically re-evaluated - no rescan needed.
 
-**Pre-Push Gate** — Git hook blocks push on critical findings. Configurable thresholds. CI/CD mode with exit codes.
+**Pre-Push Gate** - Git hook blocks push on critical findings. Configurable thresholds. CI/CD mode with exit codes.
 
 ---
 
@@ -185,11 +185,11 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 ### Supply Chain & Dependencies
 | Module | What it finds |
 |--------|--------------|
-| **Dependency CVE/KEV mapping** | 15 lockfile parsers: npm, PyPI, Go, Rust, Ruby, PHP, Java, .NET, Swift, Dart — every dep mapped against CVE, KEV, CVSS, and exploit availability |
+| **Dependency CVE/KEV mapping** | 15 lockfile parsers: npm, PyPI, Go, Rust, Ruby, PHP, Java, .NET, Swift, Dart - every dep mapped against CVE, KEV, CVSS, and exploit availability |
 | **Malicious package detection** | 50+ confirmed malicious packages: event-stream, node-ipc, colors, crewai incidents, typosquats, dependency confusion |
 | **Typosquatting detection** | Package names ±1 char from popular libraries |
-| **Transitive dependency chain** | DIRECT / TRANSITIVE / DEV — risk-weighted scoring with breadcrumb chains |
-| **Python execution hook detection** *(NEW)* | `.pth` files with executable code in `site-packages` (auto-run at every Python startup), credential-harvesting `__init__.py`, `sitecustomize.py` implants — the exact litellm 1.82.8 supply chain attack vector |
+| **Transitive dependency chain** | DIRECT / TRANSITIVE / DEV - risk-weighted scoring with breadcrumb chains |
+| **Python execution hook detection** *(NEW)* | `.pth` files with executable code in `site-packages` (auto-run at every Python startup), credential-harvesting `__init__.py`, `sitecustomize.py` implants - the exact litellm 1.82.8 supply chain attack vector |
 
 ### Secrets & Credentials
 | Module | What it finds |
@@ -198,7 +198,7 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 | **Cloud credential surface** | `.aws/`, `.gcloud/`, `.azure/`, kubeconfig, terraform state |
 | **OS credential surface** | SSH keys, `.netrc`, `.npmrc` tokens, Docker registry auth, macOS Keychain references |
 
-> Secret values are never transmitted — only type, file path, line number, and a SHA-256 fingerprint.
+> Secret values are never transmitted - only type, file path, line number, and a SHA-256 fingerprint.
 
 ### AI Toolchain & MCP *(Unique to DevGuard)*
 | Module | What it finds |
@@ -213,21 +213,21 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 ### Application Security
 | Module | What it finds |
 |--------|--------------|
-| **SAST Lite** *(NEW)* | SQL injection, XSS, command injection, SSRF, insecure deserialization, prototype pollution, prompt injection in Python and JavaScript/TypeScript — no source code sent, only `{type, file, line, snippet_hash}` |
+| **SAST Lite** *(NEW)* | SQL injection, XSS, command injection, SSRF, insecure deserialization, prototype pollution, prompt injection in Python and JavaScript/TypeScript - no source code sent, only `{type, file, line, snippet_hash}` |
 | **Endpoint & auth map** | HTTP routes without auth from FastAPI, Flask, Django, Express, NestJS, Next.js, Rails, Gin, Spring |
 | **Business logic risk** *(NEW)* | 7 logic vulnerability classes: Missing Authorization, IDOR, Bypassable Workflow, Unverified State Transitions, Privileged Op Exposed, Race Conditions, Mass Assignment. Composite risk score 0–10 |
-| **Business process detection** *(NEW)* | Auto-identifies business processes from metadata — BP-PAY, BP-AUTH, BP-PII with regulatory mapping (PCI-DSS, GDPR, HIPAA, SOX) |
-| **Data asset classification** | Field-level ORM inventory (SQLAlchemy, Django, Prisma, TypeORM, Sequelize, Mongoose, GORM, ActiveRecord) — classifies financial, identity, PII, health data |
+| **Business process detection** *(NEW)* | Auto-identifies business processes from metadata - BP-PAY, BP-AUTH, BP-PII with regulatory mapping (PCI-DSS, GDPR, HIPAA, SOX) |
+| **Data asset classification** | Field-level ORM inventory (SQLAlchemy, Django, Prisma, TypeORM, Sequelize, Mongoose, GORM, ActiveRecord) - classifies financial, identity, PII, health data |
 
 ### Infrastructure & Platform
 | Module | What it finds |
 |--------|--------------|
 | **Dev environment exposure** | `DEBUG=True`, `0.0.0.0` binds, Swagger / actuator endpoints in prod configs |
-| **CMS security** | WordPress plugin inventory + known-risky plugins, Drupal modules, Joomla, Magento 2, PrestaShop — debug mode, xmlrpc, admin exposure |
+| **CMS security** | WordPress plugin inventory + known-risky plugins, Drupal modules, Joomla, Magento 2, PrestaShop - debug mode, xmlrpc, admin exposure |
 | **Automation platform risk** *(NEW)* | n8n dangerous nodes (Execute Command, Code Node), missing webhook auth, CVE-mapped versions; Zapier / Make / IFTTT webhook secret exposure |
 | **Go security** *(NEW)* | `InsecureSkipVerify`, pprof without auth, `math/rand` for crypto, SQL via `fmt.Sprintf`; full route enumeration for Gin, Echo, Chi, Fiber |
 | **PHP / Laravel security** *(NEW)* | `eval()`, `exec()`, `shell_exec()`, `unserialize()` on user input; `display_errors`, `allow_url_include`; Laravel `.env` debug exposure |
-| **Crypto & TLS weaknesses** | TLS 1.0/1.1, RC4/DES/NULL ciphers, MD5/SHA-1, weak RSA keys (≤1024 bit), deprecated crypto libs — LLM-powered contextual analysis reduces false positives |
+| **Crypto & TLS weaknesses** | TLS 1.0/1.1, RC4/DES/NULL ciphers, MD5/SHA-1, weak RSA keys (≤1024 bit), deprecated crypto libs - LLM-powered contextual analysis reduces false positives |
 | **Runtime & EOL detection** | Node.js, Python, Go EOL schedule; insecure Docker base images |
 | **Dev container security** | Privileged containers, host network mode, sensitive volume mounts |
 | **Global tools & git hooks** | Malicious `curl`/`wget` in git hooks; outdated global npm/pip packages |
@@ -255,7 +255,7 @@ pentesterra-devguard scan --dry-run
 
 ## Re-analysis Without Rescanning
 
-When a new CVE drops, Pentesterra automatically re-scores your existing scans against the updated knowledge base. You get notified — no need to re-run the CLI.
+When a new CVE drops, Pentesterra automatically re-scores your existing scans against the updated knowledge base. You get notified - no need to re-run the CLI.
 
 ---
 
@@ -362,13 +362,13 @@ DevGuard is the **shift-left entry point** to the Pentesterra platform:
 DevGuard (pre-push)  →  Web App Pentest  →  Network Pentest  →  Continuous Monitoring
 ```
 
-Start free with DevGuard. When you need a full pentest, your project history, business logic model, and attack surface map are already in Pentesterra — ready to use.
+Start free with DevGuard. When you need a full pentest, your project history, business logic model, and attack surface map are already in Pentesterra - ready to use.
 
 ---
 
 ## Get Started
 
-1. [Sign up at pentesterra.com](https://www.pentesterra.com/devguard) — free tier, no credit card
+1. [Sign up at pentesterra.com](https://www.pentesterra.com/devguard) - free tier, no credit card
 2. Get your API key from the dashboard
 3. `pip install pentesterra-devguard && pentesterra-devguard init`
 
@@ -388,7 +388,7 @@ Start free with DevGuard. When you need a full pentest, your project history, bu
 
 <div align="center">
 
-**Pentesterra DevGuard** — Write fast. Ship fast. Ship secure.
+**Pentesterra DevGuard** - Write fast. Ship fast. Ship secure.
 
 [pentesterra.com](https://www.pentesterra.com)
 
