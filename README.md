@@ -16,7 +16,7 @@ Catch supply chain vulnerabilities, exposed secrets, malicious packages, and AI 
 [![Windsurf](https://img.shields.io/badge/Windsurf-compatible-00C7B7)](https://www.pentesterra.com/devguard)
 [![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
 
-[**Get Started**](https://www.pentesterra.com/devguard) · [**Documentation**](https://www.pentesterra.com/devguard-guide) · [**Pricing**](https://www.pentesterra.com/pricing) · [**Dashboard**](https://app.pentesterra.com)
+[**Get Started**](https://www.pentesterra.com/devguard) · [**Documentation**](https://pentesterra.com/guides/devguard) · [**Pricing**](https://www.pentesterra.com/pricing) · [**Dashboard**](https://app.pentesterra.com)
 
 </div>
 
@@ -378,7 +378,7 @@ Start free with DevGuard. When you need a full pentest, your project history, bu
 
 - [Website](https://www.pentesterra.com)
 - [DevGuard product page](https://www.pentesterra.com/devguard)
-- [DevGuard Guide](https://www.pentesterra.com/devguard-guide)
+- [DevGuard Guide](https://pentesterra.com/guides/devguard)
 - [Changelog](https://www.pentesterra.com/changelog)
 - [Dashboard](https://app.pentesterra.com)
 - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
