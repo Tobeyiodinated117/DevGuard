@@ -4,7 +4,46 @@ All notable changes to Pentesterra DevGuard are documented here.
 
 ---
 
-## v5.6.0 — 2026-03-25
+## v1.3.50 — 2026-04-06
+
+### CLI bundled with IDE extension
+
+The VS Code / Cursor / Windsurf extension now ships with the DevGuard CLI embedded. On first activation the CLI installs from the bundled package — no internet connection required, no separate `pip install` step for end users.
+
+### Accurate installed dependency versions
+
+DevGuard now runs the package manager directly to get actually-installed versions:
+
+- **Node.js**: `npm list --json`, `yarn list --json`, `pnpm list --json`
+- **Python**: venv `pip list`, `poetry show`, `pipenv run pip list`
+
+Previously, version resolution relied on parsing lockfiles and `package.json` ranges, which could produce false positives when a patched version was installed but the lockfile entry still referenced an older specifier. No more.
+
+### GraphQL Security Analysis (new module)
+
+Detects GraphQL APIs and analyzes authorization coverage without transmitting source code:
+
+- Supports SDL (`.graphql` / `.gql`), Graphene, Strawberry (Python), Apollo, and Nexus (TypeScript/JS)
+- Flags unauthenticated mutations and unprotected sensitive queries
+- Detects open introspection endpoints (production risk)
+- Reports per-resolver auth coverage: query / mutation / subscription
+
+### Multi-branch CVE matching fix
+
+CVEs affecting multiple major version series with different fix versions (e.g. CVE-2025-29927 — Next.js 11.x through 15.x, each with a separate patched release) are now correctly matched in every branch. Previously a vulnerable package on one branch could slip through if only another branch's fix version was used as the upper bound.
+
+### Global auth middleware recognized on all routes
+
+Flask `before_request`, Express `app.use(authMiddleware)`, Django `MIDDLEWARE`, and NestJS global guards are now correctly propagated to every route they protect. Routes secured exclusively via a global gate no longer appear as "unprotected" in API Route Security findings.
+
+### Improvements
+
+- Self-hosted and on-prem deployments: report links in CLI output and IDE extension panels now derive the correct URL from the configured API endpoint — no longer hardcoded to `app.pentesterra.com`.
+- Extension update check interval reduced from 24 hours to 1 hour.
+
+---
+
+## 2026-03-25
 
 ### New: Python Runtime Execution Hook Detection
 
@@ -19,7 +58,7 @@ Cross-references findings with `.env` file contents — if a malicious dep reads
 
 ---
 
-## v5.5.1 — 2026-03-18
+## 2026-03-18
 
 ### Attack Chain False Positive & Accepted Risk Management
 
@@ -29,7 +68,7 @@ Cross-references findings with `.env` file contents — if a malicious dep reads
 
 ---
 
-## v5.5.0 — 2026-03-10
+## 2026-03-10
 
 ### Global Auth Middleware Detection
 
@@ -44,7 +83,7 @@ Also extracts public route whitelists (`PUBLIC_ROUTES = [...]`) to further reduc
 
 ---
 
-## v5.4.0 — 2026-03-01
+## 2026-03-01
 
 ### Business Logic Risk Engine
 
@@ -59,7 +98,7 @@ Detects:
 
 ---
 
-## v5.3.0 — 2026-02-20
+## 2026-02-20
 
 ### Multi-Ecosystem Expansion
 
@@ -69,7 +108,7 @@ Detects:
 
 ---
 
-## v5.2.0 — 2026-02-10
+## 2026-02-10
 
 ### LLM / AI Integration Risk Scanning (Block 1)
 
@@ -81,7 +120,7 @@ Detects:
 
 ---
 
-## v5.1.0 — 2026-02-01
+## 2026-02-01
 
 ### IDE Extension: VS Code / Cursor / Windsurf
 
@@ -92,7 +131,7 @@ Detects:
 
 ---
 
-## v5.0.0 — 2026-01-15
+## 2026-01-15
 
 ### 33-Module Scan Surface
 

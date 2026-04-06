@@ -8,8 +8,8 @@
 
 Catch supply chain vulnerabilities, exposed secrets, malicious packages, and AI toolchain threats - before you `git push`.
 
-[![CLI version](https://img.shields.io/badge/CLI-v1.3.17-blue)](https://www.pentesterra.com/devguard.tar.gz)
-[![Extension version](https://img.shields.io/badge/Extension-v1.3.17-007ACC?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
+[![CLI version](https://img.shields.io/badge/CLI-v1.3.50-blue)](https://www.pentesterra.com/devguard.tar.gz)
+[![Extension version](https://img.shields.io/badge/Extension-v1.3.50-007ACC?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/i/pentesterra.pentesterra-devguard?label=installs&logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.pentesterra.com/devguard)
 [![Cursor](https://img.shields.io/badge/Cursor-compatible-black)](https://www.pentesterra.com/devguard)
@@ -110,9 +110,9 @@ code --install-extension pentesterra.pentesterra-devguard
 **[Download .vsix →](https://www.pentesterra.com/devguard.vsix)**
 
 ```bash
-code     --install-extension pentesterra-devguard-1.3.17.vsix
-cursor   --install-extension pentesterra-devguard-1.3.17.vsix
-windsurf --install-extension pentesterra-devguard-1.3.17.vsix
+code     --install-extension pentesterra-devguard-1.3.50.vsix
+cursor   --install-extension pentesterra-devguard-1.3.50.vsix
+windsurf --install-extension pentesterra-devguard-1.3.50.vsix
 ```
 
 ---
@@ -165,6 +165,11 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 | Auto re-analysis when new CVEs drop | ✅ | partial | partial | ❌ |
 | Independent of Git hosting platform | ✅ | ❌ | partial | ✅ |
 | Python `.pth` execution hook detection | ✅ | ❌ | ❌ | ❌ |
+| **npm lifecycle script malware detection** | ✅ | ❌ | partial | ❌ |
+| **Credential flow analysis — proxy redirect, exfiltration** | ✅ | ❌ | ❌ | ❌ |
+| **Service dependency map with TLS & protocol risk** | ✅ | ❌ | partial | ❌ |
+| **GraphQL API security analysis** | ✅ | ❌ | partial | ❌ |
+| **API route diff — pre-push auth regression gate** | ✅ | ❌ | ❌ | ❌ |
 
 ---
 
@@ -172,7 +177,7 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 
 **Privacy-First** - No source code upload. Only metadata and redacted findings leave the developer machine. Use `--dry-run` to inspect the payload before submitting.
 
-**IDE-Native** - VS Code, Cursor, and Windsurf extensions. Auto-installs CLI on first use, auto-updates, sidebar integration, scan-on-push hooks, and inline results.
+**IDE-Native** - VS Code, Cursor, and Windsurf extensions. The CLI is bundled inside the extension — installs automatically on first activation, no separate download or `pip install` required. Auto-updates, sidebar integration, scan-on-push hooks, and inline results.
 
 **Re-Analysis** - When new CVEs are published, previously scanned projects are automatically re-evaluated - no rescan needed.
 
@@ -180,7 +185,7 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 
 ---
 
-## What DevGuard Scans (33 Modules)
+## What DevGuard Scans (38 Modules)
 
 ### Supply Chain & Dependencies
 | Module | What it finds |
@@ -189,7 +194,8 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 | **Malicious package detection** | 50+ confirmed malicious packages: event-stream, node-ipc, colors, crewai incidents, typosquats, dependency confusion |
 | **Typosquatting detection** | Package names ±1 char from popular libraries |
 | **Transitive dependency chain** | DIRECT / TRANSITIVE / DEV - risk-weighted scoring with breadcrumb chains |
-| **Python execution hook detection** *(NEW)* | `.pth` files with executable code in `site-packages` (auto-run at every Python startup), credential-harvesting `__init__.py`, `sitecustomize.py` implants - the exact litellm 1.82.8 supply chain attack vector |
+| **Python execution hook detection** | `.pth` files with executable code in `site-packages` (auto-run at every Python startup), credential-harvesting `__init__.py`, `sitecustomize.py` implants - the exact litellm 1.82.8 supply chain attack vector |
+| **npm lifecycle script security** *(NEW)* | Scans every installed package in `node_modules` for malicious postinstall/preinstall scripts - the attack class used in the axios 1.14.1 / WAVESHAPER supply chain incident. Detects dropper patterns (network + exec + file write), obfuscated code (base64+eval, XOR decode, `charCodeAt ^ key`), inline shell droppers (`curl | bash`), and self-cleanup scripts that wipe evidence from `package.json` after execution |
 
 ### Secrets & Credentials
 | Module | What it finds |
@@ -213,10 +219,13 @@ windsurf --install-extension pentesterra-devguard-1.3.17.vsix
 ### Application Security
 | Module | What it finds |
 |--------|--------------|
-| **SAST Lite** *(NEW)* | SQL injection, XSS, command injection, SSRF, insecure deserialization, prototype pollution, prompt injection in Python and JavaScript/TypeScript - no source code sent, only `{type, file, line, snippet_hash}` |
-| **Endpoint & auth map** | HTTP routes without auth from FastAPI, Flask, Django, Express, NestJS, Next.js, Rails, Gin, Spring |
-| **Business logic risk** *(NEW)* | 7 logic vulnerability classes: Missing Authorization, IDOR, Bypassable Workflow, Unverified State Transitions, Privileged Op Exposed, Race Conditions, Mass Assignment. Composite risk score 0–10 |
-| **Business process detection** *(NEW)* | Auto-identifies business processes from metadata - BP-PAY, BP-AUTH, BP-PII with regulatory mapping (PCI-DSS, GDPR, HIPAA, SOX) |
+| **SAST Lite** | SQL injection, XSS, command injection, SSRF, insecure deserialization, prototype pollution, prompt injection in Python and JavaScript/TypeScript - no source code sent, only `{type, file, line, snippet_hash}` |
+| **API Route Security & BOLA/IDOR** *(NEW)* | Full endpoint inventory with auth coverage across Flask, FastAPI, Django, Express, NestJS, Gin, Echo, Chi. Detects unprotected routes, auth regressions, global middleware gaps. Includes BOLA/IDOR surface detection (OWASP API Top 10 #1) — authenticated endpoints that accept resource IDs without ownership verification. **Pre-push route diff** blocks commits that introduce unprotected critical endpoints or remove auth from existing routes |
+| **GraphQL Security Analysis** *(NEW)* | Detects GraphQL APIs (SDL, Graphene, Strawberry, Apollo, Nexus). Flags unauthenticated mutations, unprotected sensitive queries, open introspection endpoints. Reports per-resolver auth coverage across query / mutation / subscription — without transmitting source code |
+| **Credential Flow Analysis** *(NEW)* | Taint-style static analysis tracing 50+ credential env vars through the codebase. Detects the most dangerous supply chain attack: LLM SDK proxy redirect (`OpenAI(base_url="attacker.com")`) — project works normally while all API keys and prompts are forwarded to an attacker. Also catches HTTP exfiltration, subprocess curl/wget, base64 encoding, webhook forwarding, MCP server credential exposure, and secrets passed to unverified GitHub Actions |
+| **Service Dependency Map** *(NEW, free tier)* | Maps every external service the project connects to: databases, LLMs, queues, object storage, auth providers, monitoring, automation platforms. Extracted from connection strings, SDK imports, Docker Compose, and config files. Surfaces unencrypted connections, hardcoded credentials in URIs, unauthenticated endpoints, and forgotten services (Firebase without auth, n8n without encryption key) |
+| **Business logic risk** | 7 logic vulnerability classes: Missing Authorization, IDOR, Bypassable Workflow, Unverified State Transitions, Privileged Op Exposed, Race Conditions, Mass Assignment. Composite risk score 0–10 |
+| **Business process detection** | Auto-identifies business processes from metadata - BP-PAY, BP-AUTH, BP-PII with regulatory mapping (PCI-DSS, GDPR, HIPAA, SOX) |
 | **Data asset classification** | Field-level ORM inventory (SQLAlchemy, Django, Prisma, TypeORM, Sequelize, Mongoose, GORM, ActiveRecord) - classifies financial, identity, PII, health data |
 
 ### Infrastructure & Platform
