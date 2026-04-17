@@ -8,8 +8,8 @@
 
 Catch supply chain vulnerabilities, exposed secrets, malicious packages, and AI toolchain threats - before you `git push`.
 
-[![CLI version](https://img.shields.io/badge/CLI-v1.3.50-blue)](https://www.pentesterra.com/devguard.tar.gz)
-[![Extension version](https://img.shields.io/badge/Extension-v1.3.50-007ACC?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
+[![CLI version](https://img.shields.io/badge/CLI-v1.3.59-blue)](https://www.pentesterra.com/devguard.tar.gz)
+[![Extension version](https://img.shields.io/badge/Extension-v1.3.59-007ACC?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/i/pentesterra.pentesterra-devguard?label=installs&logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=pentesterra.pentesterra-devguard)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.pentesterra.com/devguard)
 [![Cursor](https://img.shields.io/badge/Cursor-compatible-black)](https://www.pentesterra.com/devguard)
@@ -110,9 +110,9 @@ code --install-extension pentesterra.pentesterra-devguard
 **[Download .vsix →](https://www.pentesterra.com/devguard.vsix)**
 
 ```bash
-code     --install-extension pentesterra-devguard-1.3.50.vsix
-cursor   --install-extension pentesterra-devguard-1.3.50.vsix
-windsurf --install-extension pentesterra-devguard-1.3.50.vsix
+code     --install-extension pentesterra-devguard-1.3.59.vsix
+cursor   --install-extension pentesterra-devguard-1.3.59.vsix
+windsurf --install-extension pentesterra-devguard-1.3.59.vsix
 ```
 
 ---
